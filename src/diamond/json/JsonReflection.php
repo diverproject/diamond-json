@@ -2,11 +2,11 @@
 
 namespace diamond\json;
 
+use diamond\annotation\AnnotationParser;
+use diamond\lang\StringParser;
 use ReflectionClass;
 use ReflectionMethod;
 use ReflectionProperty;
-use diamond\lang\StringParser;
-use diamond\annotation\AnnotationParser;
 
 class JsonReflection
 {

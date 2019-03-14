@@ -2,12 +2,12 @@
 
 namespace diamond\json;
 
+use DateTime;
 use diamond\annotation\AnnotationParser;
 use diamond\lang\BoolParser;
 use diamond\lang\FloatParser;
 use diamond\lang\IntParser;
 use diamond\lang\StringParser;
-use DateTime;
 
 class JsonUtil
 {
@@ -125,6 +125,9 @@ class JsonUtil
 
 			case 'datetime':
 				return self::TYPE_DATETIME;
+
+			case 'null':
+				return self::TYPE_NONE;
 		}
 
 		if (StringParser::endsWith('[]', $typeName))
@@ -252,6 +255,7 @@ class JsonUtil
 	{
 		switch (strtolower($type))
 		{
+			case self::TYPE_NONE:		return 'null';
 			case self::TYPE_CHAR:		return 'char';
 			case self::TYPE_STRING:		return 'string';
 			case self::TYPE_BYTE:		return 'byte';
